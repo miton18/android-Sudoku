@@ -4,6 +4,10 @@ jdk: oraclejdk7
 
 sudo: false
 
+env:
+    global:
+        - ANDROID_API_LEVEL=21
+
 android:
     components:
         - tools
@@ -14,7 +18,7 @@ android:
         - sys-img-armeabi-v7a-android-23
 
 before_script: 
-    - echo no | android create avd --force -n test -t "Google Inc.:Google APIs:"23 --abi google_apis/armeabi-v7a
+    - echo no | android create avd --force -n test -t "Google Inc.:Google APIs:"$ANDROID_API_LEVEL --abi google_apis/armeabi-v7a
     - emulator -avd test -no-skin -no-audio -no-window &
     - android-wait-for-emulator
 
