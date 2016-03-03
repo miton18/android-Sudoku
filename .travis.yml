@@ -48,5 +48,5 @@ script:
 
     - android list target
     - chmod +x gradlew
-    - ./gradlew connectedCheck -x android-Sudoku:signArchives -PdisablePreDex
+    - ./gradlew connectedCheck -x app:signArchives -PdisablePreDex
     - ./gradlew connectedAndroidTest --info -PdisablePreDex
