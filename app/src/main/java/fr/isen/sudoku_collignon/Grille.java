@@ -83,6 +83,7 @@ public class Grille extends View {
         paint3.setAntiAlias(true);
         paint3.setColor(Color.BLACK);
     }
+
     
     /**
      *
