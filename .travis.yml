@@ -15,8 +15,8 @@ env:
 cache:
     directories:
     
-        - ${TRAVIS_BUILD_DIR}/gradle/caches/
-        - ${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/
+        #- ${TRAVIS_BUILD_DIR}/gradle/caches/
+        #- ${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/
 
 
 android:
@@ -26,6 +26,7 @@ android:
         - tools
         - build-tools-$ANDROID_BUILD_TOOLS_VERSION
         - android-$ANDROID_API_LEVEL
+        - android-23
         # For Google APIs
         - addon-google_apis-google-$ANDROID_API_LEVEL
         # Google Play Services
