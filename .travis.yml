@@ -25,7 +25,6 @@ android:
         - platform-tools
         - tools
         
-        - build-tools-$ANDROID_BUILD_TOOLS_VERSION
         - build-tools-23.0.2
         
         - android-$ANDROID_API_LEVEL
