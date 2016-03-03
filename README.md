@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/miton18/android-Sudoku.svg?branch=master)](https://travis-ci.org/miton18/android-Sudoku)
