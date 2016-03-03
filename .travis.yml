@@ -20,4 +20,4 @@ script:
 
     - android list target
     - chmod +x gradlew
-    - ./gradlew connectedAndroidTest --stacktrace
+    - ./gradlew connectedAndroidTest --info --debug -PdisablePreDex
