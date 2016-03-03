@@ -2,17 +2,19 @@ language: android
 
 jdk: oraclejdk7
 
+sudo: false
+
 android:
     components:
         - tools
         - platform-tools
-        - build-tools-23.0.2
+        - build-tools-23.0.0
         - android-23
         - extra-android-m2repository
         - sys-img-armeabi-v7a-android-23
 
 before_script: 
-    - echo no | android create avd --force -n test -t android-23 --abi armeabi-v7a
+    - echo no | android create avd --force -n test -t "Google Inc.:Google APIs:"23 --abi google_apis/armeabi-v7a
     - emulator -avd test -no-skin -no-audio -no-window &
     - android-wait-for-emulator
 
@@ -20,4 +22,5 @@ script:
 
     - android list target
     - chmod +x gradlew
-    - ./gradlew connectedAndroidTest --info --debug -PdisablePreDex
+    - ./gradlew connectedCheck -x library:signArchives -PdisablePreDex
+    - ./gradlew connectedAndroidTest --info -PdisablePreDex
