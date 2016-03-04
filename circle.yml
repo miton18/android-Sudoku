@@ -19,7 +19,7 @@ test:
     - $ANDROID_HOME/tools/emulator -avd testing -no-window -no-boot-anim -no-audio:
         background: true
         parallel: true
-    - ./gradlew assembleDebug
     - circle-android wait-for-boot
+    - ./gradlew assembleDebug
     - ./gradlew connectedAndroidTest --stacktrace
     - cat /home/ubuntu/android-Sudoku/app/build/reports/androidTests/connected/index.html
