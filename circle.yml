@@ -12,12 +12,13 @@ dependencies:
 
 test:
   pre:
+    - chmod +x ./gradlew
     - $ANDROID_HOME/tools/emulator -avd testing -no-window -no-boot-anim -no-audio:
-      background: true
-      parallel: true
+            background: true
+            parallel: true
+    - ./gradlew assembleDebug
     - bin/android-wait-for-emulator
 
   override:
-    - chmod +x ./gradlew
     #- emulator -avd circleci-android23 -no-audio -no-window:
     - ./gradlew connectedAndroidTest
