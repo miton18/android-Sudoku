@@ -22,3 +22,4 @@ test:
     - ./gradlew assembleDebug
     - circle-android wait-for-boot
     - ./gradlew connectedAndroidTest --stacktrace
+    - cat /home/ubuntu/android-Sudoku/app/build/reports/androidTests/connected/index.html
