@@ -21,4 +21,4 @@ test:
         parallel: true
     - ./gradlew assembleDebug
     - circle-android wait-for-boot
-    - ./gradlew connectedAndroidTest
+    - ./gradlew connectedAndroidTest --stacktrace
