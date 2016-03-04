@@ -20,5 +20,5 @@ test:
         background: true
         parallel: true
     - ./gradlew assembleDebug
-    - bin/android-wait-for-emulator
+    - circle-android wait-for-boot
     - ./gradlew connectedAndroidTest
