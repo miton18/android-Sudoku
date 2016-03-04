@@ -1,15 +1,23 @@
 
-
+machine:
+  environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
+    GRADLE_OPTS: -Xmx512m
 
 dependencies:
   pre:
-    - echo y | android update sdk --no-ui --all --filter build-tools-23.0.2
+    - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.2,android-23,sys-img-armeabi-v7a-android-23,extra-android-m2repository,extra-google-m2repository,extra-android-support"
+  post:
+    -  echo n | android create avd -n testing -f -t android-23
 
 test:
+  pre:
+    - $ANDROID_HOME/tools/emulator -avd testing -no-window -no-boot-anim -no-audio:
+      background: true
+      parallel: true
+    - circle-android wait-for-boot
+
   override:
     - chmod +x ./gradlew
-    - emulator -avd circleci-android22 -no-audio -no-window:
-      background: true
-      parallel: false
-    - circle-android wait-for-boot
+    #- emulator -avd circleci-android23 -no-audio -no-window:
     - ./gradlew connectedAndroidTest
