@@ -15,7 +15,7 @@ test:
     - $ANDROID_HOME/tools/emulator -avd testing -no-window -no-boot-anim -no-audio:
       background: true
       parallel: true
-    - circle-android wait-for-boot
+    - bin/android-wait-for-emulator
 
   override:
     - chmod +x ./gradlew
