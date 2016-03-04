@@ -7,7 +7,6 @@ dependencies:
 
 test:
   override:
-    - emulator -avd circleci-android22 -no-audio -no-window:
-      background: true
+    - emulator -avd circleci-android22 -no-audio -no-window
     - circle-android wait-for-boot
     - ./gradlew connectedAndroidTest
