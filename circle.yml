@@ -22,3 +22,4 @@ test:
     - ./gradlew assembleDebug
     - circle-android wait-for-boot
     - ./gradlew connectedAndroidTest --stacktrace
+    - ls -la ./app/build/outputs/apk
