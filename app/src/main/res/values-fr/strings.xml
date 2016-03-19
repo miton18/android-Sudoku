@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about">A propos</string>
+    <string name="back">Retour</string>
+    <string name="play">Jouer</string>
+    <string name="quit">Quitter</string>
+    <string name="validate">Valider</string>
+    <string name="selectNumber">Selectionnez un nombre</string>
+    <string name="win">Vous avez gagné !</string>
+    <string name="loose">Hum... quelque chose cloche...</string>
+    <string name="fill">Remplissez toutes les cases</string>
+</resources>

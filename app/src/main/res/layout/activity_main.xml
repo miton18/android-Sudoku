@@ -46,21 +46,23 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jouer"
+            android:text="@string/play"
             android:id="@+id/button"
             android:layout_column="11"
             android:layout_weight="1"
-            android:height="50pt" />
+            android:height="50pt"
+            android:onClick="play" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="à propos"
+            android:text="@string/about"
             android:id="@+id/button2"
             android:layout_column="26"
             android:layout_weight="1"
-            android:height="50pt" />
+            android:height="50pt"
+            android:onClick="about" />
     </TableRow>
 
     <TableRow

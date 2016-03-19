@@ -23,3 +23,10 @@ test:
     - circle-android wait-for-boot
     - ./gradlew connectedAndroidTest --stacktrace
     - ls -la ./app/build/outputs/apk
+
+deployment:
+  release:
+    tag: /v.*/
+    owner: circleci
+    commands:
+      - ./deploy_master.sh

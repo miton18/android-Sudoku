@@ -1,4 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Smart SuDoKu Collignon</string>
-    <string name="title_activity_test">test</string>
+    <string name="app_name" translatable="false">Smart SuDoKu Collignon</string>
+    <string name="back">Retour</string>
+    <string name="quit">Quitter</string>
+    <string name="play">Jouer</string>
+    <string name="about">A propos</string>
+    <string name="validate">Valider</string>
+    <string name="selectNumber">Selectionnez</string>
+    <string name="win">gagné</string>
+    <string name="loose">Perdu</string>
+    <string name="fill">remplissez</string>
 </resources>
