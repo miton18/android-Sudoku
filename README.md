@@ -4,7 +4,7 @@
 This an Android project, for school.
 You can change a number in grid on swipe.
 
-[![Build Status](https://travis-ci.org/miton18/android-Sudoku.svg?branch=master)](https://travis-ci.org/miton18/android-Sudoku)
+[![Circle CI](https://circleci.com/gh/miton18/android-Sudoku/tree/master.svg?style=svg)](https://circleci.com/gh/miton18/android-Sudoku/tree/master)
 
 Copyright © 2016, miton
 
