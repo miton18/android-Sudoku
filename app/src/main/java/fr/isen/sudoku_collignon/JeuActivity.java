@@ -87,7 +87,13 @@ public class JeuActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check si gagné
+     * @param v
+     */
     public void valider( View v ) {
+
+        this.gridView.invalidate();
 
         if( this.gridView.isGridFull() ) {
             boolean resultat = gridView.isValid() ;

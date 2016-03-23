@@ -14,9 +14,10 @@ public class GridView extends View {
     private int screenHeight;
     private int n;
 
-    private Paint paint1;
+    private Paint paintGreen;
     private Paint paintRed;
     private Paint paintBlack;
+    private Paint currentPaint;
 
     private int[][]     matrix          = new int       [9][9];
     private boolean[][] fixIdx          = new boolean   [9][9];
@@ -30,7 +31,7 @@ public class GridView extends View {
      */
     public GridView( Context context, AttributeSet attrs, int defStyle ) {
 
-        super( context, attrs, defStyle );
+        super(context, attrs, defStyle);
         new GridService().execute( this );
         init();
     }
@@ -42,7 +43,7 @@ public class GridView extends View {
      */
     public GridView( Context context, AttributeSet attrs ) {
 
-        super( context, attrs );
+        super(context, attrs);
         new GridService().execute( this );
         init();
     }
@@ -53,7 +54,7 @@ public class GridView extends View {
      */
     public GridView( Context context ) {
 
-        super( context );
+        super(context);
         new GridService().execute( this );
         init();
     }
@@ -68,20 +69,22 @@ public class GridView extends View {
 
         float font_size = 80;
 
-        paint1 = new Paint();
-        paint1.setAntiAlias( true );
-        paint1.setColor( Color.BLACK );
-        paint1.setTextSize( font_size );
+        paintGreen = new Paint();
+        paintGreen.setAntiAlias( true );
+        paintGreen.setColor(Color.GREEN );
+        paintGreen.setTextSize(font_size );
 
         paintRed = new Paint();
         paintRed.setAntiAlias( true );
-        paintRed.setColor( Color.RED );
-        paintRed.setTextSize( font_size );
+        paintRed.setColor(Color.RED );
+        paintRed.setTextSize(font_size );
 
         paintBlack = new Paint();
         paintBlack.setAntiAlias( true );
-        paintBlack.setColor( Color.BLACK );
-        paintBlack.setTextSize( font_size );
+        paintBlack.setColor(Color.BLACK );
+        paintBlack.setTextSize(font_size );
+
+        currentPaint = paintBlack;
     }
 
     /**
@@ -101,8 +104,8 @@ public class GridView extends View {
 
             // Dessiner les lignes noires
             if( i != 3 && i != 6 ) {
-                canvas.drawLine( i * colSize,   0,              i * colSize,    x,              paintBlack);
-                canvas.drawLine( 0,             i * colSize,    x,              i * colSize,    paintBlack);
+                canvas.drawLine( i * colSize,   0,              i * colSize,    x,              currentPaint);
+                canvas.drawLine( 0,             i * colSize,    x,              i * colSize,    currentPaint);
 
             // Dessiner les lignes rouges
             } else {
@@ -128,6 +131,7 @@ public class GridView extends View {
                 canvas.drawText( s, i*n + n/3 , j*n + colSize - colSize/4, painter );
             }
         }
+        currentPaint = paintBlack;
     }
 
     /**
@@ -259,6 +263,8 @@ public class GridView extends View {
         // 1. VÃ©rifier l'existence de chaque numÃ©ro (de 1 Ã  9) dans chaque
         // ligne et chaque colonne
 
+        currentPaint = paintRed; // ca marche pas
+
         boolean[] rl = { true, true, true, true, true, true, true, true, true };
         boolean[] rc = { true, true, true, true, true, true, true, true, true };
         for( int i = 0; i < 9; i++ ) {
@@ -305,6 +311,7 @@ public class GridView extends View {
         }
         // ------
         // GagnÃ©
+        currentPaint = paintGreen;
         return true;
     }
 }
