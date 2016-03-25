@@ -10,4 +10,6 @@
     <string name="win">gagné</string>
     <string name="loose">Perdu</string>
     <string name="fill">remplissez</string>
+    <string name="score">Score</string>
+    <string name="reset">Reinitialiser</string>
 </resources>

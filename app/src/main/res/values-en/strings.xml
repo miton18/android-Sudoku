@@ -9,4 +9,6 @@
     <string name="win">You win !</string>
     <string name="loose">You loose !</string>
     <string name="fill">Fill all the blanks</string>
+    <string name="score">scores</string>
+    <string name="reset">Reset</string>
 </resources>

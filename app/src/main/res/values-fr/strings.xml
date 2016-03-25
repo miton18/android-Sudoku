@@ -9,4 +9,6 @@
     <string name="win">Vous avez gagné !</string>
     <string name="loose">Hum... quelque chose cloche...</string>
     <string name="fill">Remplissez toutes les cases</string>
+    <string name="score">Score</string>
+    <string name="reset">Réinitialiser</string>
 </resources>

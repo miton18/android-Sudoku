@@ -1,5 +1,7 @@
 package fr.isen.sudoku_collignon;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Vector;
+
 public class JeuActivity extends AppCompatActivity {
 
     private GridView    gridView;
@@ -17,12 +23,13 @@ public class JeuActivity extends AppCompatActivity {
     private int         x=0, y=0;
     private final int   CHOIX_NUM_FENETRE   = 0;
     private boolean     hasMoved            = false;
+    private long timeStart;
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
 
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_jeu );
+        setContentView(R.layout.activity_jeu);
 
         intent      = new Intent( this, ChoixActivity.class );
         gridView    = (GridView) findViewById( R.id.view );
@@ -68,6 +75,8 @@ public class JeuActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        this.timeStart = System.currentTimeMillis() / 1000;
     }
 
     @Override
@@ -101,6 +110,11 @@ public class JeuActivity extends AppCompatActivity {
             if( resultat ) {
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.win, Toast.LENGTH_SHORT);
                 toast.show();
+
+                Long time = (System.currentTimeMillis() / 1000) - this.timeStart;
+
+                ScoreService sc = new ScoreService(this);
+                sc.addScore( this.getUsername(), time);
             }
             else {
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.loose, Toast.LENGTH_SHORT);
@@ -122,5 +136,26 @@ public class JeuActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    private String getUsername() {
+        AccountManager manager = AccountManager.get(this);
+        Account[] accounts = manager.getAccountsByType("com.google");
+        List<String> possibleEmails = new LinkedList<String>();
+
+        for (Account account : accounts) {
+            // TODO: Check possibleEmail against an email regex or treat
+            // account.name as an email address only for certain account.type values.
+            possibleEmails.add(account.name);
+        }
+
+        if (!possibleEmails.isEmpty() && possibleEmails.get(0) != null) {
+            String email = possibleEmails.get(0);
+            String[] parts = email.split("@");
+
+            if (parts.length > 1)
+                return parts[0];
+        }
+        return null;
     }
 }

@@ -27,7 +27,7 @@ public class ChoixActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_choix_numeros, menu);
         return true;
     }
